@@ -76,14 +76,14 @@ public class Astre extends JPanel{
         this.taille = taille;
         this.couleur = couleur;
         this.angle = Math.PI*1/2;
-        this.vitesse = this.periodeRevolution /  Horloge.getCombienDejour();
-        this.angleDistance = (Math.PI*2)/(this.periodeRevolution/Horloge.getCombienDejour());
+        this.vitesse = 20;
+        this.angleDistance = ((Math.PI*2)/Horloge.getCombienDejour())/this.periodeRevolution;
     }
 
     public void placerAstre(){
         StdDraw.setPenRadius(this.taille);
         StdDraw.setPenColor(this.couleur);
-        StdDraw.filledCircle(this.coordX, this.coordY, 0.05);
+        StdDraw.point(this.coordX, this.coordY);
     }
 
 
@@ -103,13 +103,16 @@ public class Astre extends JPanel{
     }
 
     public static void deplaceSysteme(HorlogeUniverselle Horloge,Astre Mars, Astre Terre, Astre Venus, Astre Mercure, Astre Neptune, Astre Uranus, Astre Saturne, Astre Jupiter){
-            Terre.deplacePosition(Horloge);
-            Mars.deplacePosition(Horloge);
-            Venus.deplacePosition(Horloge);
-            Mercure.deplacePosition(Horloge);
-            Neptune.deplacePosition(Horloge);
-            Uranus.deplacePosition(Horloge);
-            Saturne.deplacePosition(Horloge);
-            Jupiter.deplacePosition(Horloge);
+            while (true){
+                Terre.deplacePosition(Horloge);
+                Mars.deplacePosition(Horloge);
+                Venus.deplacePosition(Horloge);
+                Mercure.deplacePosition(Horloge);
+                Neptune.deplacePosition(Horloge);
+                Uranus.deplacePosition(Horloge);
+                Saturne.deplacePosition(Horloge);
+                Jupiter.deplacePosition(Horloge);
+                HorlogeUniverselle.pause(20);
+            }
     }
 }

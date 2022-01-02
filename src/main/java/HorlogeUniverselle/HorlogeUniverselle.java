@@ -38,11 +38,10 @@ public class HorlogeUniverselle extends Thread{
         long UniversTime = System.currentTimeMillis();
         while (continuer){
             if(System.currentTimeMillis() == UniversTime + seconde){
+                System.out.println("Jour = " + day);
                 UniversTime = UniversTime + seconde;
                 day = day + combienDejour;
-                System.out.println("Jour = " + day);
-                Astre.deplaceSysteme(Horloge,Mars,Terre,Venus,Mercure,Neptune,Uranus,Saturne,Jupiter);
-
+                pause(20);
             }
         }
     }
