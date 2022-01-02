@@ -6,17 +6,21 @@ import static SystemeSolaire.MonSystemeSolaire.Terre;
 
 public class HorlogeUniverselle extends Thread{
 
-    private long seconde;
+    private int seconde;
     private boolean continuer;
     private int day = 0;
     private int combienDejour;
 
-    public long getSeconde() {
+    public int getSeconde() {
         return seconde;
     }
 
-    public HorlogeUniverselle(long seconde, int combienDejour){
-        this.seconde = seconde * 1000;
+    public int getCombienDejour(){
+        return combienDejour;
+    }
+
+    public HorlogeUniverselle(int seconde, int combienDejour, int secondeToMillis){
+        this.seconde = seconde * secondeToMillis;
         this.combienDejour = combienDejour;
         this.day = day;
     }

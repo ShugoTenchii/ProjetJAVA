@@ -6,7 +6,7 @@ public class TestThread {
 
 
         HorlogeUniverselle Horloge =
-                new HorlogeUniverselle(1, 10);
+                new HorlogeUniverselle(1, 10, 1000);
 
         Horloge.start();
 

@@ -2,6 +2,7 @@ package SystemeSolaire;
 
 import javax.swing.*;
 import Draw.StdDraw;
+import HorlogeUniverselle.HorlogeUniverselle;
 import java.lang.*;
 
 import java.awt.*;
@@ -14,7 +15,7 @@ public class Astre extends JPanel{
     private long temps;
     private long vitesse;
     private double rayon;
-    private long periodeRevolution;
+    private int periodeRevolution;
     private double taille;
     private Color couleur;
 
@@ -63,17 +64,15 @@ public class Astre extends JPanel{
     }
 
     public void ChangePosition(double angle){
-        this.coordX = (this.coordX -0)*Math.cos(angle) + (this.coordY -0)*Math.sin(angle) + 0;
-        setCoordX(this.coordX);
+        this.coordX = this.rayon * Math.sin(angle);
         System.out.println("x =" + this.coordX);
-        coordY = -(coordX -0)*Math.sin(angle) + (coordY -0)*Math.cos(angle) + 0;
-            setCoordY(coordY);
-
+        this.coordY = this.rayon * Math.cos(angle);
         System.out.println("y =" + coordY);
     }
 
 
-    public Astre(String nom, double coordX, double coordY, double rayon, long periodeRevolution, double taille, Color couleur) {
+
+    public Astre(String nom, double coordX, double coordY, double rayon, int periodeRevolution, double taille, Color couleur) {
         this.nom = nom;
         this.coordX = coordX;
         this.coordY = coordY;
@@ -87,7 +86,7 @@ public class Astre extends JPanel{
         StdDraw.setPenRadius(this.taille);
         StdDraw.setPenColor(this.couleur);
         System.out.println(this.coordY);
-        StdDraw.point(this.coordX, this.coordY);
+        StdDraw.filledCircle(this.coordX, this.coordY, 0.05);
     }
 
 
@@ -98,8 +97,17 @@ public class Astre extends JPanel{
         StdDraw.circle(0, 0,this.rayon);
     }
 
-    public void removeAstre(){
-
+    public void deplacePosition(HorlogeUniverselle Horloge){
+        double angle = Math.PI*1/2;
+        int temps = Horloge.getSeconde() / 1000;
+        while (Horloge.getNombreDejour() < this.getPeriodeRevolution()){
+            StdDraw.clear(StdDraw.BLACK);
+            this.ChangePosition(angle);
+            angle = angle - 0.02;
+            MonSystemeSolaire.creeSysteme();
+            StdDraw.show();
+            StdDraw.pause(this.periodeRevolution/Horloge.getCombienDejour());
+        }
     }
 
 }
