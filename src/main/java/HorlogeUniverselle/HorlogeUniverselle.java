@@ -2,7 +2,7 @@ package HorlogeUniverselle;
 import java.lang.*;
 import SystemeSolaire.*;
 
-import static SystemeSolaire.MonSystemeSolaire.Terre;
+import static SystemeSolaire.MonSystemeSolaire.*;
 
 public class HorlogeUniverselle extends Thread{
 
@@ -41,6 +41,7 @@ public class HorlogeUniverselle extends Thread{
                 UniversTime = UniversTime + seconde;
                 day = day + combienDejour;
                 System.out.println("Jour = " + day);
+                Astre.deplaceSysteme(Horloge,Mars,Terre,Venus,Mercure,Neptune,Uranus,Saturne,Jupiter);
 
             }
         }
