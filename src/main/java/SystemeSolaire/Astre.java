@@ -77,7 +77,7 @@ public class Astre extends JPanel{
         this.couleur = couleur;
         this.angle = Math.PI*1/2;
         this.vitesse = this.periodeRevolution /  Horloge.getCombienDejour();
-        this.angleDistance = ((Math.PI*2)/this.periodeRevolution)*4.3;
+        this.angleDistance = ((Math.PI*2)*Horloge.getCombienDejour())/this.periodeRevolution;
     }
 
     public void placerAstre(){
