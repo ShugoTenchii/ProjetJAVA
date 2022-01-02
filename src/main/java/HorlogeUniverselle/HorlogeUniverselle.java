@@ -41,7 +41,7 @@ public class HorlogeUniverselle extends Thread{
                 System.out.println("Jour = " + day);
                 UniversTime = UniversTime + seconde;
                 day = day + combienDejour;
-                pause(20);
+                Astre.deplaceSysteme(Horloge,Mars,Terre,Venus,Mercure,Neptune,Uranus,Saturne,Jupiter);
             }
         }
     }

@@ -52,8 +52,6 @@ public class MonSystemeSolaire {
 
 
         Horloge.start();
-        Astre.deplaceSysteme(Horloge,Mars,Terre,Venus,Mercure,Neptune,Uranus,Saturne,Jupiter);
-        creeSysteme();
         Horloge.fin();
 
 
