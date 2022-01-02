@@ -62,13 +62,20 @@ public class Astre extends JPanel{
         return rayon;
     }
 
-    public void ChangePosition(double angle, double coordX, double coordY){
-        coordX = 0 + (coordX -0)*Math.cos(angle) - (coordY -0)*Math.sin(angle);
-        setCoordX(coordX);
-        System.out.println("x =" + coordX);
-        coordY = 0 + (coordX -0)*Math.sin(angle) + (coordY -0)*Math.cos(angle);
-        setCoordY(coordY);
+    public void ChangePosition(double angle){
+        this.coordX = (this.coordX -0)*Math.cos(angle) + (this.coordY -0)*Math.sin(angle) + 0;
+        setCoordX(this.coordX);
+        System.out.println("x =" + this.coordX);
+        coordY = -(coordX -0)*Math.sin(angle) + (coordY -0)*Math.cos(angle) + 0;
+            setCoordY(coordY);
+
         System.out.println("y =" + coordY);
+    }
+
+    public void deplacerPoint(double angle){
+        this.placerAstre();
+        this.ChangePosition(Math.toRadians(angle));
+        this.placerAstre();
     }
 
     public Astre(String nom, double coordX, double coordY, double rayon, long periodeRevolution, double taille, Color couleur) {
@@ -81,11 +88,23 @@ public class Astre extends JPanel{
         this.couleur = couleur;
     }
 
-    public static void placerAstre(double taille, Color couleur, double coordX, double coordY){
-        StdDraw.setPenRadius(taille);
-        StdDraw.setPenColor(couleur);
-        System.out.println(coordY);
-        StdDraw.point(coordX, coordY);
+    public void placerAstre(){
+        StdDraw.setPenRadius(this.taille);
+        StdDraw.setPenColor(this.couleur);
+        System.out.println(this.coordY);
+        StdDraw.point(this.coordX, this.coordY);
+    }
+
+
+
+    public void trajetAstre(){
+        StdDraw.setPenRadius(0.001);
+        StdDraw.setPenColor(StdDraw.WHITE);
+        StdDraw.circle(0, 0,this.coordX);
+    }
+
+    public void removeAstre(){
+
     }
 
 }

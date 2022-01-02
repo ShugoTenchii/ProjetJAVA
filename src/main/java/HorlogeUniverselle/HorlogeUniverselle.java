@@ -1,5 +1,8 @@
 package HorlogeUniverselle;
 import java.lang.*;
+import SystemeSolaire.*;
+
+import static SystemeSolaire.MonSystemeSolaire.Terre;
 
 public class HorlogeUniverselle extends Thread{
 
@@ -30,12 +33,15 @@ public class HorlogeUniverselle extends Thread{
                 UniversTime = UniversTime + seconde;
                 day = day + combienDejour;
                 System.out.println("Jour = " + day);
+
             }
         }
     }
 
+
+
     public long getNombreDejour(){
-        return day * seconde;
+        return day;
     }
 
     public void fin(){
