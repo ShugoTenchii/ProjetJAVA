@@ -11,6 +11,10 @@ public class HorlogeUniverselle extends Thread{
     private int day = 0;
     private int combienDejour;
 
+    public long getSeconde() {
+        return seconde;
+    }
+
     public HorlogeUniverselle(long seconde, int combienDejour){
         this.seconde = seconde * 1000;
         this.combienDejour = combienDejour;

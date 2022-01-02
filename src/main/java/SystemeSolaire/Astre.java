@@ -72,11 +72,6 @@ public class Astre extends JPanel{
         System.out.println("y =" + coordY);
     }
 
-    public void deplacerPoint(double angle){
-        this.placerAstre();
-        this.ChangePosition(Math.toRadians(angle));
-        this.placerAstre();
-    }
 
     public Astre(String nom, double coordX, double coordY, double rayon, long periodeRevolution, double taille, Color couleur) {
         this.nom = nom;
@@ -100,7 +95,7 @@ public class Astre extends JPanel{
     public void trajetAstre(){
         StdDraw.setPenRadius(0.001);
         StdDraw.setPenColor(StdDraw.WHITE);
-        StdDraw.circle(0, 0,this.coordX);
+        StdDraw.circle(0, 0,this.rayon);
     }
 
     public void removeAstre(){

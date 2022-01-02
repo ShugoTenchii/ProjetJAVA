@@ -11,7 +11,6 @@ public class TestThread {
         Horloge.start();
 
         HorlogeUniverselle.pause(30000);
-
         Horloge.fin();
 
         System.out.println("Nombre de jour = " + Horloge.getNombreDejour() + "ms");
